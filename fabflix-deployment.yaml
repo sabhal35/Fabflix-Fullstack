@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fablix
+  labels:
+    app: fablix
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fablix
+  template:
+    metadata:
+      labels:
+        app: fablix
+    spec:
+      containers:
+        - name: fablix-container
+          image: sabhal35/fabflix-tomcat:latest
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+          env:
+            - name: DB_MASTER_URL
+              value: "jdbc:mysql://mysql-primary:3306/moviedb?autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false"
+            - name: DB_SLAVE_URL
+              value: "jdbc:mysql://mysql-secondary:3306/moviedb?autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false"
+            - name: DB_USERNAME
+              value: "mytestuser"
+            - name: DB_PASSWORD
+              value: "My6$Password"
+      imagePullSecrets:
+        - name: regcred

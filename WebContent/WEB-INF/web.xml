@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <display-name>project5</display-name>
+    <welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
+
+    <resource-ref>
+        <description>Master Database Connection</description>
+        <res-ref-name>jdbc/moviedb_master</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+    <resource-ref>
+        <description>Slave Database Connection</description>
+        <res-ref-name>jdbc/moviedb_slave</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+    <servlet>
+        <servlet-name>MainPageServlet</servlet-name>
+        <servlet-class>MainPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainPageServlet</servlet-name>
+        <url-pattern>/MainPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MovieListServlet</servlet-name>
+        <servlet-class>MovieListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovieListServlet</servlet-name>
+        <url-pattern>/MovieListServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Top20Servlet</servlet-name>
+        <servlet-class>Top20Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Top20Servlet</servlet-name>
+        <url-pattern>/Top20Servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BrowseServlet</servlet-name>
+        <servlet-class>BrowseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BrowseServlet</servlet-name>
+        <url-pattern>/Browse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeLoginServlet</servlet-name>
+        <servlet-class>EmployeeLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeLoginServlet</servlet-name>
+        <url-pattern>/_dashboard/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeLogin</servlet-name>
+        <jsp-file>/_dashboard/employee_login.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeLogin</servlet-name>
+        <url-pattern>/_dashboard/login.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeeDashboardServlet</servlet-name>
+        <servlet-class>EmployeeDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeDashboardServlet</servlet-name>
+        <url-pattern>/_dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AutocompleteServlet</servlet-name>
+        <servlet-class>AutocompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AutocompleteServlet</servlet-name>
+        <url-pattern>/autocomplete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/api/login</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Single Star</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #4b6cb7;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #e6f7ff;
+        }
+        .thead-custom {
+            background-color: #3c5cae;
+            color: white;
+        }
+        .btn-custom {
+            background-color: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-custom:hover {
+            background-color: #3c5cae;
+        }
+        .bold-text {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #182848; padding: 20px; font-size: 1.2rem;">
+    <a class="navbar-brand text-white" href="MainPage.jsp" style="font-size: 1.5rem;">Fabflix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="Top20Servlet">Top 20</a>
+            </li>
+            <li class="nav-item">
+                <a id="results-button" class="nav-link text-light">Results</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="shopping-cart.jsp">Checkout</a>
+            </li>
+        </ul>
+
+        <form class="form-inline" action="SearchServlet" method="get">
+            <input class="form-control mr-sm-2" type="text" name="title" placeholder="Title" aria-label="Title" style="width: 150px;">
+            <input class="form-control mr-sm-2" type="text" name="genre" placeholder="Genre" aria-label="Genre" style="width: 150px;">
+            <input class="form-control mr-sm-2" type="number" name="year" placeholder="Year" aria-label="Year" style="width: 120px;" min="1800" max="2100">
+            <input class="form-control mr-sm-2" type="text" name="director" placeholder="Director" aria-label="Director" style="width: 160px;">
+            <input class="form-control mr-sm-2" type="text" name="star" placeholder="Star" aria-label="Star" style="width: 150px;">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div class="ml-2">
+            <a href="LogoutServlet" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 id="star_info"></h1>
+    <table id="movie_table" class="table table-hover movie-table" style="background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+        <thead class="thead-custom">
+        <tr>
+            <th>Movie Title</th>
+            <th>Release Year</th>
+            <th>Director</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="movie_table_body">
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="single-star.js"></script>
+
+<footer style="background-color: #f0f4f8; padding: 20px; text-align: center; position: fixed; bottom: 0; left: 0; right: 0; width: 100%; z-index: 1000;">
+    <p style="color: #38b2ac; margin: 0;">
+        © 2024 Lara&Sona - All rights reserved.
+    </p>
+</footer>
+
+</body>
+</html>
