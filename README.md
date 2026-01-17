@@ -1,3 +1,5 @@
+# Fabflix
+
 ## Summary
 Fabflix is a full-stack, enterprise-grade e-commerce platform engineered for high-concurrency traffic and high-availability data management. This repository showcases the transition from a monolithic architecture to a **containerized, orchestrated ecosystem** utilizing **Kubernetes (K8s)** and **Docker**. The system is optimized for low-latency response times under heavy load, validated through comprehensive JMeter performance benchmarking.
 
